@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Works - Beatrice Tribucias</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #2F53A0;
+            color: #F8F5EC;
+        }
+
+        .my-works-header {
+            position: relative;
+            width: 100%;
+            text-align: center;
+            padding-top: 150px;
+            padding-bottom: 50px;
+        }
+
+        .my-works-title {
+            font-family: 'Neube Kabel', sans-serif;
+            font-size: 15vw;
+            margin: 0;
+            line-height: 1;
+            letter-spacing: -0.05em;
+            color: #F8F5EC;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .my-works-title.is-visible {
+             animation: swoopUp 0.8s ease-out forwards;
+        }
+
+        .main-nav ul li a {
+            color: #F8F5EC;
+        }
+        
+        .site-name {
+            color: #F8F5EC;
+        }
+
+        .my-works-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            padding: 50px 94px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .work-item {
+            background-color: #F8F5EC;
+            color: #2F53A0;
+            width: 45%;
+            max-width: 500px;
+            box-sizing: border-box;
+            padding: 30px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .work-item.is-visible {
+             animation: swoopUp 0.8s ease-out forwards;
+        }
+
+        .work-item h2 {
+            font-family: 'Neube Kabel Medium', sans-serif;
+            font-size: 2.5vw;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .work-item p {
+            font-family: 'Neube Kabel Light', sans-serif;
+            font-size: 1.2vw;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .site-footer {
+            color: #F8F5EC;
+        }
+        
+        .footer-divider {
+            border-top: 1px solid #F8F5EC;
+        }
+
+        @media (max-width: 768px) {
+            .my-works-header {
+                padding-top: 100px;
+            }
+            .my-works-title {
+                font-size: 10vw;
+            }
+            .my-works-container {
+                flex-direction: column;
+                align-items: center;
+                padding: 30px 20px;
+            }
+            .work-item {
+                width: 90%;
+                max-width: unset;
+            }
+            .work-item h2 {
+                font-size: 5vw;
+            }
+            .work-item p {
+                font-size: 3vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <span class="site-name">Beatrice Tribucias</span>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">LAND</a></li>
+                <li><a href="my-works.html">My Works</a></li>
+                <li><a href="profile.html">PROFILE</a></li> </ul>
+        </nav>
+    </header>
+
+    <div class="my-works-header">
+        <h1 class="my-works-title">My Works</h1>
+    </div>
+
+    <div class="my-works-container">
+        <div class="work-item">
+            <h2>Project Alpha</h2>
+            <p>This project involved designing a responsive landing page for a tech startup, focusing on modern aesthetics and user-friendly navigation. It was built using HTML, CSS, and JavaScript, demonstrating dynamic content loading and smooth animations.</p>
+        </div>
+        <div class="work-item">
+            <h2>E-commerce Redesign</h2>
+            <p>A complete overhaul of an existing online store's user interface and experience. The goal was to improve conversion rates through a cleaner layout, intuitive product categorization, and a streamlined checkout process. Implemented with a focus on accessibility.</p>
+        </div>
+        <div class="work-item">
+            <h2>Mobile App Concept</h2>
+            <p>Developed a conceptual prototype for a task management mobile application. This included wireframing, UI design, and interactive mockups to illustrate core functionalities like task creation, prioritization, and notification systems.</p>
+        </div>
+        <div class="work-item">
+            <h2>Data Visualization Dashboard</h2>
+            <p>Created an interactive dashboard to visualize complex data sets for a financial analytics company. The dashboard allows users to filter, sort, and display data in various chart formats, providing clear insights. Utilized D3.js and React.</p>
+        </div>
+        <div class="work-item">
+            <h2>Personal Blog Platform</h2>
+            <p>Built a simple yet elegant personal blog platform from scratch. Features include markdown support for posts, commenting functionality, and a minimalist design to enhance readability. Backend developed with Node.js and a lightweight database.</p>
+        </div>
+    </div>
+
+    <hr class="footer-divider">
+
+    <footer class="site-footer">
+        <div class="footer-column">
+            <p>FOR WHEN YOUR WEBSITE NEEDS <br>LESS TEMPLATE, MORE “WHOA, <br>WHO MADE THIS?”</p>
+        </div>
+        <div class="footer-column">
+            <p>QUEZON CITY,<br>METRO MANILA</p>
+        </div>
+        <div class="footer-column">
+            <p>LINKEDIN<br>SPOTIFY<br>TIKTOK<br>NATRIBUCIAS@STUDENTS.NU-MOA.EDU.PH</p>
+        </div>
+        <div class="footer-column">
+            <p>©2025 BEATRICE TRIBUCIAS</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll(
+                '.my-works-title, .work-item'
+            );
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    } else {
+                        // Optional: remove is-visible if you want the animation to repeat on scroll out/in
+                        // entry.target.classList.remove('is-visible'); 
+                    }
+                });
+            }, observerOptions);
+
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>

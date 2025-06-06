@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Beatrice Tribucias</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #2F53A0;
+            color: #F8F5EC;
+        }
+
+        .main-header {
+            background-color: transparent;
+        }
+
+        .site-name,
+        .main-nav ul li a {
+            color: #F8F5EC;
+        }
+
+        .profile-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 150px - 200px);
+            padding-top: 150px;
+            padding-bottom: 50px;
+        }
+
+        .profile-picture {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 40px;
+            border: 5px solid #F8F5EC;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .profile-picture.is-visible {
+            animation: swoopUp 0.8s ease-out forwards;
+        }
+
+        .profile-heading {
+            font-family: 'Neube Kabel', sans-serif;
+            font-size: 8vw;
+            color: #F8F5EC;
+            margin: 0;
+            line-height: 1;
+            letter-spacing: -0.03em;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .profile-heading.is-visible {
+            animation: swoopUp 0.8s ease-out forwards;
+            animation-delay: 0.2s;
+        }
+
+        .profile-bio {
+            font-family: 'Neube Kabel Light', sans-serif;
+            font-size: 1.5vw;
+            line-height: 1.6;
+            text-align: center;
+            max-width: 800px;
+            margin-top: 20px;
+            padding: 0 50px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .profile-bio.is-visible {
+            animation: swoopUp 0.8s ease-out forwards;
+            animation-delay: 0.4s;
+        }
+
+        .about-me-section {
+            background-color: #F8F5EC;
+            color: #2F53A0;
+            padding: 80px 50px;
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+            margin-top: 50px;
+        }
+
+        .about-me-section h2 {
+            font-family: 'Neube Kabel Medium', sans-serif;
+            font-size: 4vw;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .about-me-section h2.is-visible {
+            animation: swoopUp 0.8s ease-out forwards;
+        }
+
+        .about-me-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .about-me-item {
+            padding: 30px;
+            border: 2px solid #2F53A0;
+            border-radius: 10px;
+            background-color: #F8F5EC;
+            text-align: left;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .about-me-item.is-visible {
+            animation: swoopUp 0.8s ease-out forwards;
+        }
+
+        .about-me-item h3 {
+            font-family: 'Neube Kabel', sans-serif;
+            font-size: 1.8vw;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #2F53A0;
+        }
+
+        .about-me-item p, .about-me-item ul {
+            font-family: 'Neube Kabel Light', sans-serif;
+            font-size: 1.1vw;
+            line-height: 1.6;
+            color: #2F53A0;
+        }
+
+        .about-me-item ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .about-me-item ul li::before {
+            content: '• ';
+            color: #2F53A0;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .site-footer {
+            color: #F8F5EC;
+        }
+        
+        .footer-divider {
+            border-top: 1px solid #F8F5EC;
+        }
+
+
+        @media (max-width: 1024px) {
+            .about-me-section h2 {
+                font-size: 5vw;
+            }
+            .about-me-item h3 {
+                font-size: 2.5vw;
+            }
+            .about-me-item p, .about-me-item ul {
+                font-size: 1.8vw;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .profile-content {
+                padding-top: 100px;
+                min-height: unset;
+                padding-bottom: 30px;
+            }
+            .profile-picture {
+                width: 200px;
+                height: 200px;
+                margin-bottom: 30px;
+            }
+            .profile-heading {
+                font-size: 10vw;
+            }
+            .profile-bio {
+                font-size: 3.5vw;
+                padding: 0 20px;
+                margin-top: 15px;
+            }
+            .about-me-section {
+                padding: 60px 20px;
+                margin-top: 30px;
+            }
+            .about-me-section h2 {
+                font-size: 7vw;
+                margin-bottom: 30px;
+            }
+            .about-me-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .about-me-item {
+                padding: 20px;
+            }
+            .about-me-item h3 {
+                font-size: 4vw;
+            }
+            .about-me-item p, .about-me-item ul {
+                font-size: 3vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <span class="site-name">Beatrice Tribucias</span>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">LAND</a></li>
+                <li><a href="my-works.html">My Works</a></li>
+                <li><a href="profile.html">PROFILE</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="profile-content">
+        <img src="bea.jpg" alt="Beatrice Tribucias Profile Picture" class="profile-picture">
+        <h1 class="profile-heading">Beatrice Tribucias</h1>
+        <p class="profile-bio">
+            I'm a 20-year-old BSIT student from NU MOA with a passion for web design and development. I enjoy bringing ideas to life through code, focusing on creating engaging and user-friendly digital experiences. I believe in continuous learning and always look for new challenges to expand my skills in front-end and back-end technologies.
+        </p>
+    </div>
+
+    <div class="about-me-section">
+        <h2 class="about-me-heading">A Bit More About Me</h2>
+        <div class="about-me-grid">
+            <div class="about-me-item">
+                <h3>Education</h3>
+                <ul>
+                    <li>Lalakay Elementary School: Grade 1</li>
+                    <li>Liceo de Los Baños: Grades 2-10</li>
+                    <li>Trace College: Grades 11-12</li>
+                    <li>National University - MOA: 1st Year - Current</li>
+                </ul>
+            </div>
+            <div class="about-me-item">
+                <h3>Skills & Interests</h3>
+                <ul>
+                    <li>**Languages:** HTML, CSS, JavaScript, Python (basic)</li>
+                    <li>**Frameworks/Libraries:** React (learning), Node.js (basic)</li>
+                    <li>**Design Tools:** Figma, Adobe Photoshop</li>
+                    <li>**Other Interests:** UI/UX Design, Responsive Web Design, Front-end Performance Optimization</li>
+                </ul>
+            </div>
+            <div class="about-me-item">
+                <h3>Hobbies</h3>
+                <ul>
+                    <li>Playing mobile games (e.g., Mobile Legends)</li>
+                    <li>Watching anime and K-dramas</li>
+                    <li>Reading web novels and manga</li>
+                    <li>Listening to K-Pop and J-Rock</li>
+                    <li>Exploring new cafes and food spots</li>
+                </ul>
+            </div>
+            <div class="about-me-item">
+                <h3>What I'm Passionate About</h3>
+                <p>I am driven by the desire to create beautiful and functional websites that not only look good but also provide an intuitive experience for users. I love the problem-solving aspect of coding and the endless possibilities that web development offers. Always eager to learn new technologies and improve my craft.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="site-footer">
+        <div class="footer-column">
+            <p>FOR WHEN YOUR WEBSITE NEEDS <br>LESS TEMPLATE, MORE “WHOA, <br>WHO MADE THIS?”</p>
+        </div>
+        <div class="footer-column">
+            <p>QUEZON CITY,<br>METRO MANILA</p>
+        </div>
+        <div class="footer-column">
+            <p>LINKEDIN<br>SPOTIFY<br>TIKTOK<br>NATRIBUCIAS@STUDENTS.NU-MOA.EDU.PH</p>
+        </div>
+        <div class="footer-column">
+            <p>©2025 BEATRICE TRIBUCIAS</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll(
+                '.profile-picture, .profile-heading, .profile-bio, .about-me-heading, .about-me-item'
+            );
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    } else {
+                        // Optional: remove is-visible if you want the animation to repeat on scroll out/in
+                        // entry.target.classList.remove('is-visible'); 
+                    }
+                });
+            }, observerOptions);
+
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
